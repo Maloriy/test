@@ -451,7 +451,7 @@ if [ -n "$ggmlcuda" ]; then
         exit 1
     fi
 
-    if curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash; then
+    if curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash -s -- --plugin wasi_nn-ggml; then
         source $HOME/.wasmedge/env
         wasmedge_path=$(which wasmedge)
         info "    * The $wasmedge_version is installed in $wasmedge_path."
@@ -460,7 +460,7 @@ if [ -n "$ggmlcuda" ]; then
         exit 1
     fi
 else
-    if curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash; then
+    if curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash -s -- --plugin wasi_nn-ggml; then
         source $HOME/.wasmedge/env
         wasmedge_path=$(which wasmedge)
         info "    * The $wasmedge_version is installed in $wasmedge_path."
